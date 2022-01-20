@@ -3,7 +3,8 @@ Python API sandbox for cyber security reseller's glass panel viability
 
 
 ##How to run
-(recommmended to use venv for isolated dependencies environment)
+
+_(recommmended to use venv for isolated dependencies environment)_
 ```
 #install
 pip install requirements.txt
