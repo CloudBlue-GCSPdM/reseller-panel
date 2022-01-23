@@ -9,11 +9,14 @@ app = FastAPI()
 
 # test query
 def run_query():
-    products = client.products.all()
 
-    for product in products:
-        print("item-------")
-        print(product)
+    products = client('pricing').collection('lists').all()
+    print(products)
+    print(dir(products))
+
+    # for product in products:
+    #     print("item-------")
+    #     print(product)
 
 
 @app.get("/")
