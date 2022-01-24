@@ -2,9 +2,9 @@
 Python API sandbox for cyber security reseller's glass panel viability
 
 
-## How to setup backend
+## How to set up backend
 
-_(recommmended to use venv for isolated dependencies environment)_
+_(recommended to use venv for isolated dependencies environment)_
 ```
 $ cd backend
 

@@ -2,6 +2,7 @@ from config import Api_key
 from connect.client import ConnectClient
 from typing import Optional
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
 client = ConnectClient(Api_key)
 app = FastAPI()
@@ -19,9 +20,16 @@ def run_query():
     #     print(product)
 
 
-@app.get("/")
+user = {
+    "sample" : {
+        "id": 32,
+        "another" : "field"
+    }
+}
+
+@app.get("/apitest")
 def read_root():
-    return {"test": "response"}
+    return {"test": user}
 
 
 @app.get("/products/{vendor_id}")
