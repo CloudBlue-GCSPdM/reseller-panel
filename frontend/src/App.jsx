@@ -4,7 +4,7 @@ const App = () => {
   const [message, setMessage] = useState("");
 
 
-const getWelcomeMessage = () => {
+const getWelcomeMessage = async () => {
   const requestOptions = {
     method: "GET",
     headers : {
@@ -12,9 +12,20 @@ const getWelcomeMessage = () => {
      },
   };
 
-fetch("/apitest").then(response=> response.text()).then(data=>console.log(data)) 
+// for some reason, api returning Content-type: text, workaround with Json parse.
+const response = await fetch("/apitest", requestOptions);
+const data = JSON.parse(await response.text())
 
-  };
+
+  if (!response.ok) {
+    console.log("something went wrong")
+  } else {
+    console.log({ data })
+    setMessage(JSON.stringify(data.test.sample))  
+  }
+
+
+};
 
 useEffect (()=>{
   getWelcomeMessage();
@@ -22,7 +33,7 @@ useEffect (()=>{
 
   return (
     <div>
-      <h1> homepage here </h1>
+      <h1> homepage here: {message} </h1>
     </div>
   );
 };
