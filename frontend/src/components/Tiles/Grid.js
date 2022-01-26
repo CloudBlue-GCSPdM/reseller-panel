@@ -6,7 +6,7 @@ const Grid = ({props}) => {
     const {vendors} = props;
     
     return (
-        <div className="tile is-ancestor">
+        <div className="tile is-ancestor is-four-fifths">
             {vendors.map(tile =>
                 <Tile props={{name:tile}} key={tile} />
             )}

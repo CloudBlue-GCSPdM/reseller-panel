@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 //components
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import BarChart from "./components/Charts/BarChart";
 import ScatterChart from "./components/Charts/ScatterChart";
 import DoughnutChart from "./components/Charts/DoughnutChart";
@@ -51,6 +51,9 @@ const App = () => {
 
   return (
     <div>
+      <Router>
+        <Navbar/>
+      </Router>
 
       <Title props={{ 'title': 'Welcome to the landing page', 'subtitle': `Vendors you work with: ${message}` }} />
       <Grid props={{"vendors": [...message]}} />
@@ -58,6 +61,7 @@ const App = () => {
       <BarChart />
       <DoughnutChart />
       <LineChart />
+
       {/* <ScatterChart/> */}
 
 
