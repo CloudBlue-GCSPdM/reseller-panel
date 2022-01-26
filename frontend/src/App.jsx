@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState } from "react";
 
 
 //components
@@ -8,6 +8,7 @@ import ScatterChart from "./components/Charts/ScatterChart";
 import DoughnutChart from "./components/Charts/DoughnutChart";
 import LineChart from "./components/Charts/LineChart";
 import Title from "./components/Title";
+import Grid from "./components/Tiles/Grid"
 
 //router
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -18,45 +19,47 @@ import 'bulma/css/bulma.min.css'
 
 
 const App = () => {
-  const [message, setMessage] = useState("");
-
-
-const getWelcomeMessage = async () => {
-  const requestOptions = {
-    method: "GET",
-    headers : {
-      'Media-Type': 'application/json',
-     },
-  };
-
-// for some reason, api returning Content-type: text, workaround with Json parse.
-const response = await fetch("/apitest", requestOptions);
-const data = JSON.parse(await response.text())
-
-
-console.log({data})
-  if (!response.ok) {
-    console.log("something went wrong")
-  } else {
-    console.log({ data })
-    setMessage(JSON.stringify(data.vendors))  
+  const [message, setMessage] = useState([]);
+  let dataprops = {
+    "vendors" : []
   }
 
+  const getWelcomeMessage = async () => {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        'Media-Type': 'application/json',
+      },
+    };
 
-};
+    // for some reason, api returning Content-type: text, workaround with Json parse.
+    const response = await fetch("/apitest", requestOptions);
+    const data = JSON.parse(await response.text())
+    
+    if (!response.ok) {
+      console.log("something went wrong")
+    } else {
+      dataprops["vendors"] = data.vendors
+      setMessage(data.vendors)
+    }
 
-useEffect (()=>{
-  getWelcomeMessage();
-}, [])
+  };
+
+  useEffect(() => {
+    getWelcomeMessage();
+  }, [])
 
   return (
     <div>
 
-      <Title props={{"title": "Welcome to the landing page", "subtitle": `Vendors you work with:, ${message}`}}/>
+      <Title props={{ 'title': 'Welcome to the landing page', 'subtitle': `Vendors you work with: ${message}` }} />
+      <Grid props={{"vendors": [...message]}} />
 
-      <BarChart/>
-      <DoughnutChart/>
-      <LineChart/>
+      <BarChart />
+      <DoughnutChart />
+      <LineChart />
+      {/* <ScatterChart/> */}
+
 
       {/* <Routes>
         <Route path='/' element={}></Route>
@@ -69,8 +72,8 @@ useEffect (()=>{
           <Route path='/'></Route>
         </Routes>
       </Router> */}
-      
-     
+
+
     </div>
   );
 };
