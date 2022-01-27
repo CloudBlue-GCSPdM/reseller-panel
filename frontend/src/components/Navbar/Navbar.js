@@ -11,11 +11,13 @@ import logo from '../../pics/test-02.jpg'
 
 export default function chart() {
   return (
-    <nav className='navbar' role='navigation' aria-label='main navigation' style={{paddingTop:30}}>
+    <nav className='navbar' role='navigation' aria-label='main navigation' >
+
+    <img src={logo} width='250'height='max-height' style={{paddingTop:20}} />
 
       <div className="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io" style={{ paddingRight: 60 }}>
-          <img src={logo} width='200%' />
+        <a class="navbar-item" href="https://bulma.io" style={{height:100}}>
+        
         </a>
       </div>
       

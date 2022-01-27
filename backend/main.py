@@ -29,7 +29,7 @@ user = {
 
 @app.get("/apitest")
 def read_root():
-    return {"vendors": ["sophos", "mimecast", "mcafee", "trendmicro", "bitdefender"]}
+    return {"vendors": ["Sophos", "McAfee", "TrendMicro", "BitDefender"]}
 
 
 @app.get("/products/{vendor_id}")
