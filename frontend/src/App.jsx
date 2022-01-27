@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 
 
 //components
 import Navbar from './components/Navbar/Navbar';
-import BarChart from "./components/Charts/BarChart";
-import ScatterChart from "./components/Charts/ScatterChart";
-import DoughnutChart from "./components/Charts/DoughnutChart";
-import LineChart from "./components/Charts/LineChart";
-import Title from "./components/Title";
-import Grid from "./components/Tiles/Grid"
+
+//import views
+import Home from "./components/Views/Home";
+import About from "./components/Views/About";
 
 //router
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -17,14 +15,20 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import 'bulma/css/bulma.min.css'
 
 
+export default class App extends Component {
 
-const App = () => {
-  const [message, setMessage] = useState([]);
-  let dataprops = {
-    "vendors" : []
+
+  constructor(props){
+    super(props)
+
+    this.state={
+      vendors: []
+    }
   }
-
-  const getWelcomeMessage = async () => {
+  componentDidMount(){
+    this.getVendors()
+  }
+  getVendors = async () => {
     const requestOptions = {
       method: "GET",
       headers: {
@@ -35,51 +39,37 @@ const App = () => {
     // for some reason, api returning Content-type: text, workaround with Json parse.
     const response = await fetch("/apitest", requestOptions);
     const data = JSON.parse(await response.text())
-    
     if (!response.ok) {
-      console.log("something went wrong")
+      console.log("something went wrong SSE")
     } else {
-      dataprops["vendors"] = data.vendors
-      setMessage(data.vendors)
+      this.setState({vendors:data.vendors})
     }
-
   };
 
-  useEffect(() => {
-    getWelcomeMessage();
-  }, [])
+  render() {
 
-  return (
-    <div>
+    return <div>
       <Router>
-        <Navbar/>
+        <Navbar />
       </Router>
 
-      <Title props={{ 'title': 'Welcome to the landing page', 'subtitle': `Vendors you work with: ${message}` }} />
-      <Grid props={{"vendors": [...message]}} />
 
-      <BarChart />
-      <DoughnutChart />
-      <LineChart />
+      <Home props={{"vendors": [...this.state.vendors]}}/>
 
-      {/* <ScatterChart/> */}
+      {/* <About/> */}
 
 
-      {/* <Routes>
-        <Route path='/' element={}></Route>
 
-      </Routes> */}
+       {/* <Routes>        <Route path='/' element={}></Route>
+       </Routes> */}
+        {/* <Router>
+         <Navbar />
+         <Routes>
+           <Route path='/'></Route>
+         </Routes>
+       </Router> */}
 
-      {/* <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/'></Route>
-        </Routes>
-      </Router> */}
+    </div>;
+  }
+}
 
-
-    </div>
-  );
-};
-
-export default App;

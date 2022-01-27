@@ -13,42 +13,42 @@ export default function chart() {
   return (
     <nav className='navbar' role='navigation' aria-label='main navigation' >
 
-    <img src={logo} width='250'height='max-height' style={{paddingTop:20}} />
+    <img src={logo} width='250'height='max-height' style={{paddingTop:10}} />
 
       <div className="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io" style={{height:100}}>
+        <a className="navbar-item" href="https://bulma.io" style={{height:100}}>
         
         </a>
       </div>
       
 
-      <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
+      <div id="navbarBasicExample" className="navbar-menu">
+    <div className="navbar-start">
+      <a className="navbar-item">
         Home
       </a>
 
-      <a class="navbar-item">
+      <a className="navbar-item">
         Documentation
       </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+      <div className="navbar-item has-dropdown is-hoverable">
+        <a className="navbar-link">
           More
         </a>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
+        <div className="navbar-dropdown">
+          <a className="navbar-item">
             About
           </a>
-          <a class="navbar-item">
+          <a className="navbar-item">
             Jobs
           </a>
-          <a class="navbar-item">
+          <a className="navbar-item">
             Contact
           </a>
-          <hr class="navbar-divider"/>
-          <a class="navbar-item">
+          <hr className="navbar-divider"/>
+          <a className="navbar-item">
             Report an issue
           </a>
         </div>
