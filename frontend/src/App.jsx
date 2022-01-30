@@ -54,16 +54,12 @@ export default class App extends Component {
     return <div>
       <Router>
         <Navbar />
-
         <Routes>
-
           <Route path="/" element={ <Home props={{ "vendors": [...this.state.vendors] }} /> }></Route>
           <Route path="/Documentation" element={<Documentation/>}></Route>
           <Route path="/About" element={ <About />}></Route>
           <Route path="/Contact" element={ <Contact />}></Route>
-          <Route path="*" element={ <Error/>} ></Route>
-
-          
+          <Route path="*" element={ <Error/>} ></Route> 
         </Routes>
 
       </Router>
