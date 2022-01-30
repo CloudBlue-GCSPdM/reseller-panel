@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 //import views here
 import Home from '../Views/Home';
@@ -13,24 +13,12 @@ export default function chart() {
   return (
     <nav className='navbar' role='navigation' aria-label='main navigation' >
 
-    <img src={logo} width='250'height='max-height' style={{paddingTop:10}} />
-
-      <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io" style={{height:100}}>
-        
-        </a>
-      </div>
-      
+    <img src={logo} width='250'height='max-height' style={{paddingTop:10}} />    
 
       <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
-      <a className="navbar-item">
-        Home
-      </a>
-
-      <a className="navbar-item">
-        Documentation
-      </a>
+      <NavLink className="navbar-item" to="/"> Home </NavLink>
+      <NavLink className="navbar-item" to="/documentation"> Documentation </NavLink>
 
       <div className="navbar-item has-dropdown is-hoverable">
         <a className="navbar-link">
@@ -38,30 +26,16 @@ export default function chart() {
         </a>
 
         <div className="navbar-dropdown">
-          <a className="navbar-item">
-            About
-          </a>
-          <a className="navbar-item">
-            Jobs
-          </a>
-          <a className="navbar-item">
-            Contact
-          </a>
+          <NavLink className="navbar-item" to="/about"> About  </NavLink>
+          <NavLink className="navbar-item" to="/contact"> Charts  </NavLink>
+          <NavLink className="navbar-item" to="/contact">  Contact  </NavLink>
           <hr className="navbar-divider"/>
-          <a className="navbar-item">
-            Report an issue
-          </a>
+          <NavLink className="navbar-item" to="/error"> Report an issue  </NavLink>
         </div>
       </div>
     </div>
     </div>
 
-
-      {/* <ul className='nav-links'>
-        <Link to="/homepage" className='"Home'> <div className='navbar-item'> </div> <li>Tab goes here</li> </Link>
-        <Link to="/about" className='About'>  <div className='navbar-item'> </div> <li>Tab goes here</li> </Link>
-        <Link to="/contact" className='Contact'> <div className='navbar-item'> </div> <li>Tab goes here</li> </Link>
-      </ul> */}
 
     </nav> 
     ) 

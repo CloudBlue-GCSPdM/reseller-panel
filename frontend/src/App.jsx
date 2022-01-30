@@ -7,9 +7,12 @@ import Navbar from './components/Navbar/Navbar';
 //import views
 import Home from "./components/Views/Home";
 import About from "./components/Views/About";
+import Contact from "./components/Views/Contact";
+import Error from "./components/Views/Error";
+import Documentation from "./components/Views/Documentation";
 
 //router
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //css
 import 'bulma/css/bulma.min.css'
@@ -51,23 +54,19 @@ export default class App extends Component {
     return <div>
       <Router>
         <Navbar />
+
+        <Routes>
+
+          <Route path="/" element={ <Home props={{ "vendors": [...this.state.vendors] }} /> }></Route>
+          <Route path="/Documentation" element={<Documentation/>}></Route>
+          <Route path="/About" element={ <About />}></Route>
+          <Route path="/Contact" element={ <Contact />}></Route>
+          <Route path="*" element={ <Error/>} ></Route>
+
+          
+        </Routes>
+
       </Router>
-
-
-      <Home props={{"vendors": [...this.state.vendors]}}/>
-
-      {/* <About/> */}
-
-
-
-       {/* <Routes>        <Route path='/' element={}></Route>
-       </Routes> */}
-        {/* <Router>
-         <Navbar />
-         <Routes>
-           <Route path='/'></Route>
-         </Routes>
-       </Router> */}
 
     </div>;
   }
