@@ -10,6 +10,7 @@ import About from "./components/Views/About";
 import Contact from "./components/Views/Contact";
 import Error from "./components/Views/Error";
 import Documentation from "./components/Views/Documentation";
+import ChartMain from "./components/Views/ChartMain";
 
 //router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -57,12 +58,14 @@ export default class App extends Component {
         <Routes>
           <Route path="/" element={ <Home props={{ "vendors": [...this.state.vendors] }} /> }></Route>
           <Route path="/Documentation" element={<Documentation/>}></Route>
+          <Route path="/Charts" element={<ChartMain/>}></Route>
           <Route path="/About" element={ <About />}></Route>
           <Route path="/Contact" element={ <Contact />}></Route>
           <Route path="*" element={ <Error/>} ></Route> 
         </Routes>
-
       </Router>
+
+      
 
     </div>;
   }
