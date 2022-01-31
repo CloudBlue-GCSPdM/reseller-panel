@@ -5,10 +5,10 @@ import React from 'react';
 const Listing = () => {
   return <div>
 
-<div class="card">
+<div class="card" >
   <header class="card-header">
     <p class="card-header-title">
-      Component
+      Component 
     </p>
     <button class="card-header-icon" aria-label="more options">
       <span class="icon">
