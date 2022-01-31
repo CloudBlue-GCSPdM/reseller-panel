@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 
 import Title from '../Title';
 import Grid from '../Tiles/Grid';
+import Layout from '../Layout';
+import SubTitle from '../SubTitle';
 
 
 export default class Home extends Component {
@@ -24,7 +26,6 @@ componentDidMount(){
 // action function that loads the 
 
 
-
   render() {
     const { vendors } = this.props.props;
 
@@ -33,8 +34,16 @@ componentDidMount(){
 
       {/* outer div */}
       <div style={{ paddingLeft: 25, paddingRight: 25 }}>
-        <div>Create a files scrolling</div>
+
+
+        <br />
+        <Layout />
+        <div style={{ textAlign: 'center', justifyContent: 'center', display: 'flex' }}>
+
+          <SubTitle props={{ "subtitle": "List of vendors:" }} />
+        </div>
         <Grid props={{ "vendors": [...vendors] }} />
+
       </div>
 
     </div>;

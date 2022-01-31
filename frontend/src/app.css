@@ -1,0 +1,16 @@
+.custom-mod:hover{
+    transform: scale(1.1);
+    transition-duration: 1s;
+    }
+
+ .scrollable-div{
+    overflow:scroll;
+    height:550px;
+    overflow-x: hidden; 
+    }
+
+.centered-stuff{
+    text-align: 'center'!important;
+    justify-content:'center'!important;
+    display:'flex'!important;
+}

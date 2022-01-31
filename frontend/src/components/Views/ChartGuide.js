@@ -14,7 +14,7 @@ export default class ChartGuide extends Component {
     return <div>
 
         <Title props={{ "title": "Data visualization", "subtitle": "Here is the data for the reseller." }}></Title>
-        This would be the guide for all the charts available
+        Per product
 
       <BarChart />
       <DoughnutChart />

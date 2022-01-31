@@ -18,6 +18,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //css
 import 'bulma/css/bulma.min.css'
+import './app.css'
 
 
 export default class App extends Component {

@@ -23,7 +23,7 @@ const VendorLogo = () => {
 
     let {vendor} = useParams()
 
-  return <div className='container'>
+  return <div className='container' style={{textAlign:'center', justifyContent:'center', display:'flex'}} >
       <figure className="image" >
           <img src={vendors[`${vendor}`]} style={{width:350}} />
       </figure>
