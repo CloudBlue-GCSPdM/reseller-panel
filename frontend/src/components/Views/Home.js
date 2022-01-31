@@ -25,16 +25,18 @@ componentDidMount(){
 
 
 
-componentDidUpdate(){
-}
-
   render() {
     const { vendors } = this.props.props;
 
     return <div>
       <Title props={{ 'title': 'Welcome to the landing page', 'subtitle': `Vendors you work with: ${vendors}.` }} />
-      <Grid props={{ "vendors": [...vendors] }} />
-      
+
+      {/* outer div */}
+      <div style={{ paddingLeft: 25, paddingRight: 25 }}>
+        <div>Create a files scrolling</div>
+        <Grid props={{ "vendors": [...vendors] }} />
+      </div>
+
     </div>;
   }
 }

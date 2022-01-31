@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 
 //app logo
 import logo from '../../pics/test-02.jpg'
 
 
 const Navbar = () => {
+  let navigate = useNavigate()
   return (
     <nav className='navbar' role='navigation' aria-label='main navigation' >
 
-      <img src={logo} width='250' height='max-height' style={{ paddingTop: 10 }} />
+      <img src={logo} width='250' height='max-height' onClick={()=>navigate("/")} style={{ paddingTop: 10 }} />
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">

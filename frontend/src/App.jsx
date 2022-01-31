@@ -11,6 +11,7 @@ import Contact from "./components/Views/Contact";
 import Error from "./components/Views/Error";
 import Documentation from "./components/Views/Documentation";
 import ChartMain from "./components/Views/ChartMain";
+import ChartGuide from "./components/Views/ChartGuide"
 
 //router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -58,14 +59,15 @@ export default class App extends Component {
         <Routes>
           <Route path="/" element={ <Home props={{ "vendors": [...this.state.vendors] }} /> }></Route>
           <Route path="/Documentation" element={<Documentation/>}></Route>
-          <Route path="/Charts" element={<ChartMain/>}></Route>
+          <Route path="/Charts/:vendor" element={<ChartMain/>}></Route>
+          <Route path="/Charts" element={<ChartGuide/>}></Route>
           <Route path="/About" element={ <About />}></Route>
           <Route path="/Contact" element={ <Contact />}></Route>
           <Route path="*" element={ <Error/>} ></Route> 
         </Routes>
       </Router>
 
-      
+
 
     </div>;
   }
