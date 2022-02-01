@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Title from '../Title';
+import SubTitle from '../SubTitle';
 
 import BarChart from '../Charts/BarChart';
 import DoughnutChart from '../Charts/DoughnutChart';
@@ -31,7 +32,10 @@ export default class ChartMain extends Component {
 
         <Title props={{ "title": "Data visualization", "subtitle": "Here is the data for the reseller." }}></Title>
         
-        <div> Here we plot the charts, depending on the one clicked.</div>
+        <div style={{ textAlign: 'center', justifyContent: 'center', display: 'flex' }}>
+        <SubTitle props={{ "subtitle": "Aggregated data per vendor" }}
+        />
+      </div>
 
         {/* <progress class="progress is-link" value="30" max="100">30%</progress> */}
 

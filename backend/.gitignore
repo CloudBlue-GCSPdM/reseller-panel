@@ -130,3 +130,6 @@ dmypy.json
 
 
 config.py
+data/
+get_data_new.py
+get_data.py

@@ -43,7 +43,7 @@ export default class App extends Component {
     };
 
     // for some reason, api returning Content-type: text, workaround with Json parse.
-    const response = await fetch("/apitest", requestOptions);
+    const response = await fetch("/vendorList", requestOptions);
     const data = JSON.parse(await response.text())
     if (!response.ok) {
       console.log("something went wrong SSE")
