@@ -2,6 +2,9 @@ import React from 'react';
 
 const Title = ({props}) => {
 
+    //fix to acccept empty subtitle
+    const {title} = props
+     
   return <div>
       <section className="hero">
           <div className="hero-body">

@@ -3,15 +3,13 @@ import React from 'react';
 
 import Listing from './Listing';
 
-const Container = () => {
+const Container = ({props}) => {
 
-  //temp
-  let arrayProducts = ["no", "no1","no2","no3","no4","no5","no6","no7","no8","no9","no10","no11"]
+  let {products} = props;
   return <div className='scrollable-div'>
     
-
-      {arrayProducts.map(each =>
-        <Listing key={each}/>
+      {products.map(each =>
+        <Listing props={{"product": each}} key={each.id}/>
         )}
   
 

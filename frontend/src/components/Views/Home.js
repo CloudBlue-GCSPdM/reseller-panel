@@ -72,7 +72,7 @@ jsx_load_product=()=>{
 jsx_loaded_all_products=()=>{
   return <div>
 <Center props={{"subtitle": "List of products:", "loading": this.state.load_products}}/>
-<Layout props={{"loading": this.state.load_products}}/>
+<Layout props={{"products":this.state.products}}/>
   </div>
 }
 
@@ -91,10 +91,10 @@ jsx_loaded_vendors=()=>{
         state: { vendor: this.state.selectedVendor }
       }} />
     }
+
     console.log({"vendors": this.state.vendors})
     console.log({"products": this.state.products})
 
-    // console.log({"vendors": this.state.vendors})
     const { vendors } = this.props.props;
     const {load_vendors, load_products} = this.state;
     const loader = this.jsx_load_product()

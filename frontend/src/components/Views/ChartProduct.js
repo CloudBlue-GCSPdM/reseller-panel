@@ -9,6 +9,7 @@ import LineChart from '../Charts/LineChart';
 import ScatterChart from '../Charts/ScatterChart';
 import Loading from '../Loading';
 import Center from '../Center';
+import Table from '../Charts/Table/Table';
 
 import SubTitle from '../SubTitle';
 
@@ -44,10 +45,29 @@ export default class ChartProduct extends Component {
 
   get_jsx = () =>{
     return <div>
-      <BarChart /> 
-      <DoughnutChart />
-      <LineChart />
-      <ScatterChart />
+      <Table props={{"subs": this.state.subscriptions}}/>
+      <br/>
+      <br/>
+      <br/>
+
+      <div className="columns is-desktop">
+          <div className="column"></div>
+          <div className="column">
+            <Title props={{"title":"Customers Growth"}}/>
+            <BarChart />
+            <Title props={{"title":"Subscription by type"}}/>
+            <DoughnutChart />
+          </div>
+          <div className="column"></div>
+          <div className="column">
+          <Title props={{"title":"Industry Mic"}}/>
+          <LineChart />
+          <Title props={{"title":"Seats Growth"}}/>
+          <div><ScatterChart /></div>
+          </div>
+          <div className="column"></div>        
+          <div className="column"></div>
+    </div>
     </div>
   }
 
@@ -59,13 +79,13 @@ export default class ChartProduct extends Component {
     //   </div>
     // }
 
-    console.log({"subs": this.state.subscriptions})
+    console.log({"subscriptions_per_product": this.state.subscriptions})
     const {loading} = this.state;
     const page_body = this.get_jsx()
     return <div>
 
       <Title props={{ "title": "Data visualization", "subtitle": "Here is the data we have for you." }}></Title>
-      <Center props={{"subtitle" : "Individual data per product", "loading":loading}}/>
+      <Center props={{"subtitle" : "Subscription's data per product", "loading":loading}}/>
 
       {!loading ? page_body : <br/>}
       

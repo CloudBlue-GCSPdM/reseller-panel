@@ -1,4 +1,4 @@
-//TODO
+//TODO, maybe change to class component
 
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';

@@ -8,9 +8,11 @@ import DoughnutChart from '../Charts/DoughnutChart';
 import LineChart from '../Charts/LineChart';
 import ScatterChart from '../Charts/ScatterChart';
 import Center from '../Center';
+import Table from '../Charts/Table/Table';
 
 //logo
 import VendorLogo from './VendorLogo'; 
+import Tile from '../Tiles/Tile';
 
 export default class ChartMain extends Component {
 
@@ -45,17 +47,40 @@ export default class ChartMain extends Component {
   get_jsx = () => {
     return <div>
       <VendorLogo />
-      <BarChart />
-      <DoughnutChart />
-      <LineChart />
-      <ScatterChart />
+      <Table props={{"subs": this.state.subscriptions}}/>
+
+      <br/>
+      <br/>
+      <br/>
+
+    
+    <div className="columns is-desktop">
+          <div className="column"></div>
+          <div className="column">
+            <Title props={{"title":"Customers Growth"}}/>
+            <BarChart />
+            <Title props={{"title":"Subscription by type"}}/>
+            <DoughnutChart />
+          </div>
+          <div className="column"></div>
+          <div className="column">
+          <Title props={{"title":"Industry Mic"}}/>
+          <LineChart />
+          <Title props={{"title":"Seats Growth"}}/>
+          <div><ScatterChart /></div>
+          </div>
+          <div className="column"></div>        
+          <div className="column"></div>
+    </div>
+      
     </div>
 
   }
   
   render() {
     
-    console.log("subscriptions", this.state.subscriptions)
+    console.log({"subscriptions_per_product": this.state.subscriptions})
+    
     const page_body = this.get_jsx()
     const {loading} = this.state;
     return <div>
