@@ -47,19 +47,19 @@ def get_products():
 @app.get("/subscriptions")
 def get_products():
     resp = get_subscription_data()
-    return {"subscription" : resp }
+    return {"subscriptions" : resp }
 
 #done
 @app.get("/product/{product_id}/subscriptions")
 def get_prod_subscription (product_id):
     resp = get_subs_of_products_data(product_id)
-    return {"data": resp}
+    return {"subscriptions": resp}
 
 #done
 @app.get("/vendor/{vendor_id}/subscriptions")
 def get_prod_subscription (vendor_id):
     resp = get_subs_of_vendor_data(vendor_id)
-    return {"data" : resp}
+    return {"subscriptions" : resp}
 
 
 

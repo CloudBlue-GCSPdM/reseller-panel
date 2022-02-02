@@ -5,27 +5,27 @@ import React from 'react';
 const Listing = () => {
   return <div>
 
-<div class="card" >
-  <header class="card-header">
-    <p class="card-header-title">
+<div className="card" >
+  <header className="card-header">
+    <p className="card-header-title">
       Component 
     </p>
-    <button class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
+    <button className="card-header-icon" aria-label="more options">
+      <span className="icon">
+        <i className="fas fa-angle-down" aria-hidden="true"></i>
       </span>
     </button>
   </header>
-  <div class="card-content">
-    <div class="content">
+  <div className="card-content">
+    <div className="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
       <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
       <br/>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
   </div>
-  <footer class="card-footer">
-    <a href="#" class="card-footer-item">See more...</a>
+  <footer className="card-footer">
+    <a href="#" className="card-footer-item">See more...</a>
   </footer>
 </div>
 

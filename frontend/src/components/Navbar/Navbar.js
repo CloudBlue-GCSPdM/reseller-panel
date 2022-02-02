@@ -23,7 +23,7 @@ const Navbar = () => {
 
             <div className="navbar-dropdown">
               <NavLink className="navbar-item" to="/about"> About  </NavLink>
-              <NavLink className="navbar-item" to="/charts"> Charts  </NavLink>
+              <NavLink className="navbar-item" to="/charts"> All Subscriptions  </NavLink>
               <NavLink className="navbar-item" to="/contact">  Contact  </NavLink>
               <hr className="navbar-divider" />
               <NavLink className="navbar-item" to="/error"> Report an issue  </NavLink>

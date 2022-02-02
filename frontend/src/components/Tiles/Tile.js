@@ -9,15 +9,16 @@ const randomize = () => Math.floor(Math.random() * 10)
 
 const Tile = ({props}) => {
 
+    const {select, name } = props;
     let navigate = useNavigate();
 
     return (
     <div className="tile is-parent">
-        <article className="tile is-child notification is-info custom-mod" onClick={()=>navigate(`/charts/${props.name}`)}>
-            <p className="title">{props.name}</p>
+        <article className="tile is-child notification is-info custom-mod" onClick={()=>select(name)}>
+            <p className="title">{name}</p>
             <p className="subtitle"> There are ({randomize()}) products available.</p>
             <figure className="image is-4by3">
-                <img src={vendors[`${props.name}`]}/>
+                <img src={vendors[`${name}`]}/>
             </figure>
         </article>
     </div>

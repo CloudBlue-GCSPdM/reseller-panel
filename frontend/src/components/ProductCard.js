@@ -29,7 +29,7 @@ const ProductCard = () => {
         <p className="subtitle is-6">Graph up here ^</p>
       </div>
     </div>
-      <button class="button is-success" onClick={()=>navigate("/charts")}>See more</button>
+      <button className="button is-success" onClick={()=>navigate("/charts")}>See more</button>
     <div className="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris
