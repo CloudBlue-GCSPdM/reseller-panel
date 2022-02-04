@@ -1,7 +1,7 @@
 import React from 'react';
 
  //
-// //nombre de customer, 
+// //customer name, 
 // fecha de suscripción, 
 // customer
 //  name,

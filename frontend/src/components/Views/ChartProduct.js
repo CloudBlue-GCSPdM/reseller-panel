@@ -53,16 +53,17 @@ export default class ChartProduct extends Component {
       <div className="columns is-desktop">
           <div className="column"></div>
           <div className="column">
-            <Title props={{"title":"Customers Growth"}}/>
-            <BarChart />
-            <Title props={{"title":"Subscription by type"}}/>
-            <DoughnutChart />
+            <Title props={{"title":"Total customers (ranking : #8)", "subtitle":"2021"}} />
+            <BarChart props={{"labels" : ["Yours", "#1 Reseller"]}}/>
+
+            <Title props={{"title":"Connect order type", "subtitle" :"2021"}}/>
+            <DoughnutChart props={{"request": true}}/>
           </div>
           <div className="column"></div>
           <div className="column">
-          <Title props={{"title":"Industry Mic"}}/>
-          <LineChart />
-          <Title props={{"title":"Seats Growth"}}/>
+          <Title props={{"title":"Seats Growth", "subtitle": "2021"}}/>
+          <LineChart props={{"label":"Seats Growth"}} />
+          <Title props={{"title":"Churn rate over time", "subtitle": "2021"}}/>
           <div><ScatterChart /></div>
           </div>
           <div className="column"></div>        
@@ -72,12 +73,6 @@ export default class ChartProduct extends Component {
   }
 
   render() {
-
-    // if (this.state.subscriptions.length === 0){
-    //   return <div>
-    //     <Loading/>
-    //   </div>
-    // }
 
     console.log({"subscriptions_per_product": this.state.subscriptions})
     const {loading} = this.state;

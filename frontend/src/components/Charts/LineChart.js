@@ -1,14 +1,21 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+import { months, bestReseller } from './Utils'
 
-const LineChart = () => {
+
+const LineChart = ({props}) => {
+
+  console.log(months())
+  // const {data } = props;
+  const {label} = props;
+
   return (<div>
     <Line
         data={{
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: months(),
                 datasets: [{
-                    label: 'Churn rate',
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    label,
+                    data: bestReseller(),
                     fill: false,
                     borderColor: 'rgb(75, 192, 192)',
                     tension: 0.1

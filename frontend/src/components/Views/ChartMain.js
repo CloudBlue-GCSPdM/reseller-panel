@@ -54,19 +54,36 @@ export default class ChartMain extends Component {
       <br/>
 
     
-    <div className="columns is-desktop">
+      <div className="columns is-desktop">
           <div className="column"></div>
           <div className="column">
-            <Title props={{"title":"Customers Growth"}}/>
-            <BarChart />
-            <Title props={{"title":"Subscription by type"}}/>
-            <DoughnutChart />
+            <Title props={{"title": "SKU allocation", "subtitle":"2021"}} />
+             <DoughnutChart props={{"request": true}}/>
+
+            <Title props={{"title":"Purchase trend", "subtitle" :"2021"}}/>
+            <LineChart props={{"label":"Seats Growth"}} />
+
+            {/* <Title props={{"title":"Vendor capabilities", "subtitle" : `Customers and users` }}/> */}
+            <br/>
+            <section class="section">
+              <h1 class="title">Vendor capabilities</h1>
+              <h2 class="subtitle">
+               Customer and users <strong> (Trend micro Only) </strong>
+              </h2>
+              <Table props={{"subs": []}}/>
+              <h2 class="subtitle">
+                <strong> (To be done) </strong>
+              </h2>
+            </section>
+
+
+           
           </div>
           <div className="column"></div>
           <div className="column">
-          <Title props={{"title":"Industry Mic"}}/>
-          <LineChart />
-          <Title props={{"title":"Seats Growth"}}/>
+          <Title props={{"title":"Growth over time", "subtitle": "2021"}}/>
+          <LineChart props={{"label":"Seats Growth"}} />
+          <Title props={{"title":"Churn rate over time", "subtitle": "2021"}}/>
           <div><ScatterChart /></div>
           </div>
           <div className="column"></div>        
@@ -80,7 +97,7 @@ export default class ChartMain extends Component {
   render() {
     
     console.log({"subscriptions_per_product": this.state.subscriptions})
-    
+
     const page_body = this.get_jsx()
     const {loading} = this.state;
     return <div>

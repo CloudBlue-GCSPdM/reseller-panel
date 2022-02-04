@@ -24,7 +24,7 @@ import { Scatter }  from 'react-chartjs-2'
           borderWidth: 1
           },
           {
-            label: "quantity",
+            label: "Churn",
             data: [100,500,63,23,12,450],
             backgroundColor: 'orange',
             borderColor: "red"

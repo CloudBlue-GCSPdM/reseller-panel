@@ -8,9 +8,9 @@ const Listing = ({props}) => {
 
   return <div>
 
-<div className="card" >
+<div className="card"  >
   <header className="card-header" >
-    <p className="card-header-title">
+    <p className="card-header-title" style={{"backgroundColor" : "rgb(92,168,223, 0.3)"}}>
     {product.name}
     </p>
     <button className="card-header-icon" aria-label="more options">
