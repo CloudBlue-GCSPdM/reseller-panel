@@ -65,18 +65,7 @@ export default class ChartMain extends Component {
 
             {/* <Title props={{"title":"Vendor capabilities", "subtitle" : `Customers and users` }}/> */}
             <br/>
-            <section class="section">
-              <h1 class="title">Vendor capabilities</h1>
-              <h2 class="subtitle">
-               Customer and users <strong> (Trend micro Only) </strong>
-              </h2>
-              <Table props={{"subs": []}}/>
-              <h2 class="subtitle">
-                <strong> (To be done) </strong>
-              </h2>
-            </section>
-
-
+            
            
           </div>
           <div className="column"></div>
@@ -88,6 +77,19 @@ export default class ChartMain extends Component {
           </div>
           <div className="column"></div>        
           <div className="column"></div>
+    </div>
+
+    <div>
+    <section class="section">
+              <h1 class="title">Vendor capabilities</h1>
+              <h2 class="subtitle">
+               Customer and users <strong> (Trend micro Only) </strong>
+              </h2>
+              <Table props={{"subs": [], "special": true}}/>
+              <h2 class="subtitle">
+                {/* <strong> (To be done) </strong> */}
+              </h2>
+            </section>
     </div>
       
     </div>

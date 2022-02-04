@@ -1,7 +1,7 @@
+import CryptoJS from 'crypto-js'
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Navigate  } from 'react-router-dom';
-
 
 import Title from '../Title';
 import Grid from '../Tiles/Grid';
@@ -23,20 +23,66 @@ constructor(...args){
     tileClicked: null,
     vendors: [],
     products: [],
-    selectedVendor: ""
+    selectedVendor: "",
+    tmResponse: {},
   }
 }
 
+get_trend_data =()=>{
+
+const finalUrl = 'https://cspi-stg.trendmicro.com/LMPI/v2/customers'
+
+var curDate = new Date().toGMTString();
+var now = new Date();
+var secondsSinceEpoch = Math.round(now.getTime() / 1000);
+
+var targetUrl = finalUrl.replace(new RegExp('^https?://[^/]+/'),'/'); // strip hostname
+var method = 'GET';
+
+var md5Hash = CryptoJS.MD5({});
+var base64 = CryptoJS.enc.Base64.stringify(md5Hash);
+var Payload = secondsSinceEpoch + method + targetUrl;
+
+var hash = CryptoJS.HmacSHA256(Payload, "oOZOtGyzd9ctgqeKBo3VBCIaWA6oZDoYlAm5jNAEUVU=");
+var base64hash = CryptoJS.enc.Base64.stringify(hash);
+
+const signature = base64hash;
+const posix = secondsSinceEpoch;
+
+
+axios.get(finalUrl, {
+  headers: {
+      'x-traceid' : 'TRACE1587333638',
+      'x-access-token' : '1b42dbdf-b94d-456e-8cc2-22df5d3daf6f',
+      'x-signature' : signature,
+      'x-posix-time' : posix,
+      'Content-Type' : 'application/x-www-form-urlencoded'
+  },
+  params: {
+    'user_modified_start' : '2013-01-01T00:00:00Z',
+    'user_modified_end' : '2020-04-30T00:00:00Z'
+  }
+}).then(res=> {
+  console.log("after axios", res)
+  this.setState({tmResponse : res.data })
+  })
+
+console.log("i finished fetching", this.state.tmResponse)
+
+}
   
 
-  componentDidMount() {
-    axios.get("/vendorList").then(res => {
-      this.setState({ vendors: res.data.vendors, load_vendors: false })
-    })
+componentDidMount() {
+  axios.get("/vendorList").then(res => {
+    this.setState({ vendors: res.data.vendors, load_vendors: false })
+  })
 
-    axios.get("/productList").then(res => {
-      this.setState({products: res.data.products, load_products:false})
-    })
+  axios.get("/productList").then(res => {
+    this.setState({products: res.data.products, load_products:false})
+  })
+
+  this.get_trend_data()
+
 }
 
 handleVendorClick = (vendorName) => {
@@ -94,6 +140,7 @@ jsx_loaded_vendors=()=>{
 
     console.log({"vendors": this.state.vendors})
     console.log({"products": this.state.products})
+    console.log({"fetched_tm_api": this.state.tmResponse})
 
     const { vendors } = this.props.props;
     const {load_vendors, load_products} = this.state;
