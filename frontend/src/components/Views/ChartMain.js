@@ -7,6 +7,7 @@ import LineChart from '../Charts/LineChart';
 import ScatterChart from '../Charts/ScatterChart';
 import Center from '../Center';
 import Table from '../Charts/Table/Table';
+import { useNavigate } from 'react-router-dom';
 
 //logo
 import VendorLogo from './VendorLogo'; 
@@ -27,6 +28,8 @@ const [subscriptions, setSubscriptions ] = useState([])
 const [loading, setLoading] = useState(true)
 
 console.log("i come from home and this are my ",props)
+// console.log("props location", props.location);
+
 
 //on mount equivalent
 useEffect(()=>{

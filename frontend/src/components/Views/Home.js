@@ -19,7 +19,7 @@ const Home = ({props}) => {
   const [loading_vendors, setLoaderVendors] = useState(true)
   const [tmdata, setTmData] = useState({})
   const [selectedVendor, setSelectedVendor] = useState("")
-  const [selectedProduct, setSelectedProduct] = useState("")
+
 
   //fetch data here
   useEffect(()=>{
@@ -44,30 +44,14 @@ const Home = ({props}) => {
   
   const handleVendorClick = (vendorName) => {
     // setSelectedVendor(prevState => vendorName)
-    console.log("vendorName without useState", vendorName)
     navigate(`/Charts/${vendorName}`, {state: {value:"aqui"}})
     //do the navigate here instead.
     // setRedirect(true)
     //maybe add redirect as state here too
   }
 
-  const handleProductClick = (productName) => {
-    //do the navigate here instead.
-    setSelectedProduct(productName)
-    
-  }
 
-  //state
-  // this.state = {
-  //   load_products: true,
-  //   load_vendors: true,
-  //   redirect: false,
-  //   tileClicked: null,
-  //   vendors: [],
-  //   products: [],
-  //   selectedVendor: "",
-  //   tmResponse: {},
-  // }
+
 
   //maybe move to MainChart.js as a dependency
     const get_trend_data =()=>{
@@ -149,12 +133,6 @@ const Home = ({props}) => {
       </div>
     }
 
-    // if (redirect) {
-    //   return <Navigate to={{
-    //     pathname: `/charts/${selectedVendor}`,
-    //     state: { vendor: selectedVendor }
-    //   }} />
-    // }
 
   return <div>
 

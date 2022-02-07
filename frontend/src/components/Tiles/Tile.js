@@ -10,7 +10,6 @@ const randomize = () => Math.floor(Math.random() * 10)
 const Tile = ({props}) => {
 
     const {select, name } = props;
-    let navigate = useNavigate();
 
     return (
     <div className="tile is-parent">

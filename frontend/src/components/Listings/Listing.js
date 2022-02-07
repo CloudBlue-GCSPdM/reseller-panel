@@ -4,29 +4,23 @@ import React from 'react';
 
 const Listing = ({props}) => {
 
-  const { product } = props;
+  const { product, select } = props;
 
   return <div>
 
-<div className="card"  >
+    <br/>
+<div className="card" style={{"backgroundColor" : "white" }} >
   <header className="card-header" >
-    <p className="card-header-title" style={{"backgroundColor" : "rgb(92,168,223, 0.3)"}}>
+    <p className="card-header-title" style={{backgroundColor: "rgb(92,168,223, 0.3)"}}>
     {product.name}
     </p>
-    <button className="card-header-icon" aria-label="more options">
+    <button className="card-header-icon" aria-label="more options" onClick={()=>select(product)} style={{backgroundColor:"rgba(6, 78, 137, 0.8)"}}>
       <span className="icon">
-        <i className="fas fa-angle-down" aria-hidden="true"></i>
+        <p className="fas fa-angle-right" aria-hidden="true" style={{color:"white"}}> > </p>
       </span>
     </button>
   </header>
-  <div className="card-content">
-    <div className="content">
-      {product.short_description}
-      {/* <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a> */}
-      <br/>
-      {/* <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time> */}
-    </div>
-  </div>
+ 
   <footer className="card-footer">
     {/* <a href="#" className="card-footer-item">See more...</a> */}
   </footer>
