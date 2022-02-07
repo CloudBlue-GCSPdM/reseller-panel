@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import Title from '../Title';
 import axios from 'axios';
 
@@ -7,45 +7,30 @@ import BarChart from '../Charts/BarChart';
 import DoughnutChart from '../Charts/DoughnutChart';
 import LineChart from '../Charts/LineChart';
 import ScatterChart from '../Charts/ScatterChart';
-import Loading from '../Loading';
 import Center from '../Center';
 import Table from '../Charts/Table/Table';
 
-import SubTitle from '../SubTitle';
 
-export default class ChartProduct extends Component {
-
-
-  constructor(...args){
-    super(...args)
-
-    this.state= {
-      subscriptions: [],
-      loading : true
-
-    }
-  }
-
-
-  filterData=()=>{
-    
-  }
-
-
-  componentDidMount(){
+const ChartProduct = () => {
+  
+  const [subscriptions, setSubscriptions ] = useState([])
+  const [loading, setLoading] = useState(true)
+  
+  useEffect(()=>{
+  
     window.scrollTo(0, 0)
-
     axios.get("/product/PRD-411-678-887/subscriptions").then(res => {
-      console.log("loaded")
-      // this.setState({ subscriptions: res.data.subscriptions, loading:false })
-      this.setState({ subscriptions: res.data.subscriptions, loading:false })
-      
+    setSubscriptions(res.data.subscriptions)
+    setLoading(false)
     })
-  }
+    //add cleaner if case axios response gets cancelled
+    //find out how to do
+  
+  },[])
 
-  get_jsx = () =>{
+const page_body = () =>{
     return <div>
-      <Table props={{"subs": this.state.subscriptions}}/>
+      <Table props={{"subs": subscriptions}}/>
       <br/>
       <br/>
       <br/>
@@ -72,18 +57,17 @@ export default class ChartProduct extends Component {
     </div>
   }
 
-  render() {
 
-    console.log({"subscriptions_per_product": this.state.subscriptions})
-    const {loading} = this.state;
-    const page_body = this.get_jsx()
-    return <div>
 
-      <Title props={{ "title": "Data visualization", "subtitle": "Here is the data we have for you." }}></Title>
-      <Center props={{"subtitle" : "Subscription's data per product", "loading":loading}}/>
+  return (<div>
 
-      {!loading ? page_body : <br/>}
-      
-    </div>;
-  }
-}
+    <Title props={{ "title": "Data visualization", "subtitle": "Here is the data we have for you." }}></Title>
+    <Center props={{ "subtitle": "Subscription's data per product", "loading": loading }} />
+    {loading ? <br /> : page_body()}
+
+  </div>);
+};
+
+export default ChartProduct;
+
+
