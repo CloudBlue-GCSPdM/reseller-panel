@@ -2,7 +2,7 @@ class response:
     pass
 
 def trend_micro():
-
+    #query goes here
     table_response = response()
     table_response.showData = True
     table_response.headers = "fill this with headers"
@@ -12,14 +12,14 @@ def trend_micro():
 
 
 def sophos():
-
+    #query goes here
     table_response = response()
     table_response.showData = True
     return table_response
 
 
 def bit_defender():
-
+    #query goes here
     table_response = response()
     table_response.showData = False 
 

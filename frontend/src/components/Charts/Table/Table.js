@@ -8,7 +8,7 @@ import {toggledOff, toggledOn} from './Specialsub'
 
 //do ON click function button
 
-const expandClick = () => toggledOn
+// const expandClick = () => toggledOn
 
 
 
@@ -16,18 +16,27 @@ const Table = ({props}) => {
 
 const {subs} = props;
 const special = props.special ? props.special : false;
-let other = toggledOff;
+const vendor = props.vendor ? props.vendor : "regular";
 
-if(special){
-  
+let other = [];
+switch(vendor){
+  case "TrendMicro":
+    other = toggledOff;
+    break;
+  case "Sophos":
+    other = toggledOn;
+    break;
+  case "regular":
+    other = [];
+
 }
 
   return <div style={{ textAlign: 'center', justifyContent: 'center', display: 'flex' }}>
       <table className='table'>
-        {!special ? <Headers/> : <Headers props={{special}}  />}
+        {!special ? <Headers/> : <Headers props={{special, "vendor" : vendor}}  />}
 
         { !special ? subs.map((sub, index) => <Row props={{"i":index, "row":sub }} key={index}/>) :
-          other.map((sub, index) => <SpecialRow props={{"i":index, "row":sub }} key={index}/>)
+          other.map((sub, index) => <SpecialRow props={{"i":index, "row":sub, "vendor": vendor }} key={index}/>)
         }
       </table>
   </div>;
