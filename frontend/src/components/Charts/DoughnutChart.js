@@ -8,10 +8,9 @@ const DoughnutChart = ({props}) => {
   const {request } = props;
   let backgroundColor,labels = [];
   let label = "# of votes";
-  console.log("props of doughnut chart", request)
+  // console.log("props of doughnut chart", request)
   //switch for more colors pending, passing type
   if(request === true) {
-    console.log("inside if")
     backgroundColor = connectOrderColors()
     labels = getLabelrequest()
   }

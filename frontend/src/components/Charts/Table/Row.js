@@ -3,7 +3,7 @@ import React from 'react';
 const Row = ({props}) => {
 
     const { row, i} = props;
-    const customerName = row.params[0].id || "not available"
+    const customerName = row.tiers.customer.name || "not available"
     const createdAt = row.events.created.at.split("T")[0]
     const billinNextDate =  row.billing.hasOwnProperty('next_date') ?  row.billing.next_date.split("T")[0] : "-"
 

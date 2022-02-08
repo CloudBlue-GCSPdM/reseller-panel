@@ -9,21 +9,25 @@ import LineChart from '../Charts/LineChart';
 import ScatterChart from '../Charts/ScatterChart';
 import Center from '../Center';
 import Table from '../Charts/Table/Table';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const ChartProduct = () => {
   
   const [subscriptions, setSubscriptions ] = useState([])
+  const [show, setShow] = useState(false)
+  const [productInfo, setProductInfo] = useState({"id": "","name": "", "status": "", "icon": ""})
   const [loading, setLoading] = useState(true)
   let { product } = useParams();
-  let navigation = useNavigate()
   
   useEffect(()=>{
-    console.log("navigation obj", navigation);
-    console.log("before axios", product)
+
     window.scrollTo(0, 0)
     axios.get(`/product/${product}/subscriptions`).then(res => {
     setSubscriptions(res.data.subscriptions)
+    if(res.data.subscriptions.length>0) {
+      setProductInfo(res.data.product_info)
+      setShow(true)
+    }
     setLoading(false)
     })
     //add cleaner if case axios response gets cancelled
@@ -31,13 +35,18 @@ const ChartProduct = () => {
   
   },[])
 
+const validate_body = () => {
+  return (
+    <div> {show ? page_body() : <Title props={{ "title": "There are no subscriptions", "subtitle": "There is no data for this product." }}></Title> }</div>
+  )
+}
+
 const page_body = () =>{
     return <div>
       <Table props={{"subs": subscriptions}}/>
       <br/>
       <br/>
       <br/>
-
       <div className="columns is-desktop">
           <div className="column"></div>
           <div className="column">
@@ -65,8 +74,8 @@ const page_body = () =>{
   return (<div>
 
     <Title props={{ "title": "Data visualization", "subtitle": "Here is the data we have for you." }}></Title>
-    <Center props={{ "subtitle": "Subscription's data per product", "loading": loading }} />
-    {loading ? <br /> : page_body()}
+    <Center props={{ "subtitle": `Subscription's data for product: ${productInfo.name}`, "loading": loading }} />
+    {loading ? <br /> : validate_body()}
 
   </div>);
 };

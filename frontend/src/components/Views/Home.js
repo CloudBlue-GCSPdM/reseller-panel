@@ -89,7 +89,6 @@ const Home = ({props}) => {
           'user_modified_end' : '2020-04-30T00:00:00Z'
         }
       }).then(res=> {
-        console.log("after axios", res)
         setTmData(res.data)
         })
       

@@ -5,7 +5,7 @@ import { months, bestReseller } from './Utils'
 
 const LineChart = ({props}) => {
 
-  console.log(months())
+  // console.log(months())
   // const {data } = props;
   const {label} = props;
 

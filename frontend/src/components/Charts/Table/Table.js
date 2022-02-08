@@ -8,6 +8,9 @@ import {toggledOff, toggledOn} from './Specialsub'
 
 //do ON click function button
 
+const expandClick = () => toggledOn
+
+
 
 const Table = ({props}) => {
 

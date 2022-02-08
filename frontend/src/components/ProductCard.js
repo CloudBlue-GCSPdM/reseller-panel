@@ -9,7 +9,7 @@ const ProductCard = ({props}) => {
   let navigate = useNavigate()
 
     const { graph, pic, description, published_at, name, id} = props.selectedProduct;
-    console.log("what is going on", {props})
+  
    
   return <div>
 
