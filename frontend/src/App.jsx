@@ -61,7 +61,7 @@ export default class App extends Component {
           <Route path="/" element={ <Home props={{ "vendors": [...this.state.vendors] }} /> }></Route>
           <Route path="/Documentation" element={<Documentation/>}></Route>
           <Route path="/Charts/:vendor"  element={<ChartMain/>}></Route>
-          <Route path="/Charts" element={<ChartProduct/>}></Route>
+          <Route path="/Product/:product" element={<ChartProduct/>}></Route>
           <Route path="/About" element={ <About />}></Route>
           <Route path="/Contact" element={ <Contact />}></Route>
           <Route ></Route>

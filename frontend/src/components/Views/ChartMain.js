@@ -12,16 +12,6 @@ import { useNavigate } from 'react-router-dom';
 //logo
 import VendorLogo from './VendorLogo'; 
 
-
-// inside state this needs
-// subscriptions: [],
-// loading: true, 
-
-//add this to main useEffect
-//window.scrollTo(0, 0)
-
-
-
 const ChartMain = ({props}) => {
 
 const [subscriptions, setSubscriptions ] = useState([])
@@ -35,7 +25,7 @@ console.log("i come from home and this are my ",props)
 useEffect(()=>{
 
   window.scrollTo(0, 0)
- axios.get("/vendor/VA-589-589/subscriptions").then(res => {
+  axios.get("/vendor/VA-589-589/subscriptions").then(res => {
   setSubscriptions(res.data.subscriptions)
   setLoading(false)
   })

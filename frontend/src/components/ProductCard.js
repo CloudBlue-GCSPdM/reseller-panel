@@ -14,11 +14,11 @@ const ProductCard = ({props}) => {
   return <div>
 
 <div className="card">
-  <div className="card-image">
+  {/* <div className="card-image">
     <figure className="image is-4by3">
       <img src={graph} alt="Placeholder image"/>
     </figure>
-  </div>
+  </div> */}
   <div className="card-content">
     <div className="media">
       <div className="media-left">
@@ -31,7 +31,7 @@ const ProductCard = ({props}) => {
         <p className="subtitle is-6">{id}</p>
       </div>
     </div>
-      <button className="button is-success" onClick={()=>navigate("/charts")}>See more</button>
+      <button className="button is-success" onClick={()=>navigate(`/Product/${id}`)}>See more</button>
     <div className="content">
       <br/>
         {description}

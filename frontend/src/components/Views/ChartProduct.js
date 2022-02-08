@@ -9,17 +9,20 @@ import LineChart from '../Charts/LineChart';
 import ScatterChart from '../Charts/ScatterChart';
 import Center from '../Center';
 import Table from '../Charts/Table/Table';
-
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ChartProduct = () => {
   
   const [subscriptions, setSubscriptions ] = useState([])
   const [loading, setLoading] = useState(true)
+  let { product } = useParams();
+  let navigation = useNavigate()
   
   useEffect(()=>{
-  
+    console.log("navigation obj", navigation);
+    console.log("before axios", product)
     window.scrollTo(0, 0)
-    axios.get("/product/PRD-411-678-887/subscriptions").then(res => {
+    axios.get(`/product/${product}/subscriptions`).then(res => {
     setSubscriptions(res.data.subscriptions)
     setLoading(false)
     })
