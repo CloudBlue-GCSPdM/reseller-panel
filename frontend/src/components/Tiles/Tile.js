@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import vendors from './commons';
 
 
-const randomize = () => Math.floor(Math.random() * 10)
+const randomize = () => Math.floor(Math.random() * (10-1) + 1);
 
 const Tile = ({props}) => {
 

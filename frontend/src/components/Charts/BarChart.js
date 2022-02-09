@@ -15,30 +15,54 @@ const BarChart = ({props}) => {
 
   const { labels } = props;
 
+  let datasets =  [
+    {
+      label:labels[0],
+      data : thisReseller(),
+      backgroundColor: ['rgba(54, 162, 235, 1)'],
+    borderWidth: 1
+    },
+    {
+      label: labels[1],
+      data: bestReseller() ,
+      backgroundColor: ['rgba(144, 118, 115, 0.3)'],
+      borderColor: "red"
+    }
+  ];
+
+ 
+
+  if (props && props.churn){
+    const {churn} = props;
+
+    datasets = [
+      {
+        label: "Churn sum",
+        data : [0,0,0,0,2,0,1,0,0,0,0,0],
+        backgroundColor: ['rgba(54, 162, 235, 1)'],
+      borderWidth: 1
+      },
+    ]
+  }
+
   return ( <div>
 
     <Bar
     data={{
       labels: months(),
-      datasets: [
-        {
-          label:labels[0],
-          data : thisReseller(),
-          backgroundColor: ['rgba(54, 162, 235, 1)'],
-        borderWidth: 1
-        },
-        {
-          label: labels[1],
-          data: bestReseller() ,
-          backgroundColor: ['rgba(144, 118, 115, 0.3)'],
-          borderColor: "red"
-        }
-      ],
+      datasets
     }}
     height={400}
     width={600}
     options={{maintainAspectRatio:false,
-      indexAxis: 'y'
+      indexAxis: 'y',
+      scales: {
+        x: {
+          ticks: {
+              precision: 0
+          }
+      }
+      }
     }}
     />
   </div> );

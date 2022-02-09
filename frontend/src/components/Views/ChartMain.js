@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import DoughnutChart from '../Charts/DoughnutChart';
 import LineChart from '../Charts/LineChart';
-import ScatterChart from '../Charts/ScatterChart';
+import BarChart from '../Charts/BarChart'
 import Center from '../Center';
 import Table from '../Charts/Table/Table';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -59,22 +59,37 @@ const vendor_table = () => {
 
 const page_body = () => {
   return <div>
+
+      {/* <div className='whitebg'>  
+     Test icon hereee 
+     <i class="far fa-pencil"></i>
+      </div> */}
+  
+      <br/>
+
+    <div className="columns is-desktop">
+    <div className="column"></div> 
+    <div className='whitebg'>
     <VendorLogo />
     <Table props={{"subs": subscriptions}}/>
+    </div>
+    <div className="column"></div>
+    </div>
 
-    <br/>
-    <br/>
     <br/>
   
     <div className="columns is-desktop">
         <div className="column"></div>
         <div className="column">
+          <div className='whitebg'>
           <Title props={{"title": "SKU allocation", "subtitle":"2021"}} />
            <DoughnutChart props={{"request": true}}/>
-
-          <Title props={{"title":"Purchase trend", "subtitle" :"2021"}}/>
-          <LineChart props={{"label":"Seats Growth"}} />
-
+          </div>
+          <br/>
+          <div className='whitebg'>
+          <Title props={{"title":"Upcoming renewals", "subtitle" :"2022"}}/>
+          <LineChart props={{"label":"renewals", "custom": "renewal"}} />
+          </div>
           {/* <Title props={{"title":"Vendor capabilities", "subtitle" : `Customers and users` }}/> */}
           <br/>
           
@@ -82,18 +97,32 @@ const page_body = () => {
         </div>
         <div className="column"></div>
         <div className="column">
-        <Title props={{"title":"Growth over time", "subtitle": "2021"}}/>
-        <LineChart props={{"label":"Seats Growth"}} />
+        <div className='whitebg'>
+        <Title props={{"title":"Subscription's growth", "subtitle": "2021"}}/>
+        <LineChart props={{"label":"Subscription's Growth", "custom": "growth"}} />
+        </div>
+        <br/>
+        <div className='whitebg'>
         <Title props={{"title":"Churn rate over time", "subtitle": "2021"}}/>
-        <div><ScatterChart /></div>
+        <BarChart props={{"labels" : [""], "churn": true}}/>
+        </div>
         </div>
         <div className="column"></div>        
         <div className="column"></div>
   </div>
 
-  {!vendorDetails.showData ?  <Title props={{ "title": "Vendor not available yet", "subtitle": "We are working on getting the vendor's api access" }}></Title> : vendor_table()}
- 
-    
+    <div style={{ paddingLeft: 30, paddingRight: 30 }}>
+      <div className='whitebg'>
+        {!vendorDetails.showData ? <Title props={{ "title": "Vendor not available yet", "subtitle": "We are working on getting the vendor's api access" }}></Title> : vendor_table()}
+      </div>
+
+      {/* add sophoes extra table here */}
+      
+
+    </div>
+    <br/>
+    <br/>
+  
   </div>
 
 }
@@ -102,12 +131,15 @@ const page_body = () => {
   // console.log("loading", !loading, "anc actual one", loading)
   //${vendorInfo.name}
 
-  console.log("receiving stub data", vendorDetails)
+  let loadingcolor = loading ? "#FFFFFF" : "rgba(169, 235, 243, 0.2)";
 
-    return (<div>
+  console.log("receiving stub data", vendorDetails)
+  
+
+    return (<div style={{"background-color": loadingcolor}}>
 
       <Title props={{ "title": "Data visualization", "subtitle": "Here is the data for the reseller." }}></Title>
-      <Center props={{ "subtitle": `Aggregated data per vendor:`, "loading": loading }} />
+      <Center props={{ "subtitle": `${vendor}'s subscription data`, "loading": loading }} />
       {loading ?  <br/> : page_body()   } 
 
 

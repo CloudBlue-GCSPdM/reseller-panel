@@ -8,6 +8,22 @@ const LineChart = ({props}) => {
   // console.log(months())
   // const {data } = props;
   const {label} = props;
+  let data = bestReseller();
+
+  if (props.custom){
+    const {custom } = props;
+
+    switch(custom){
+      case "growth":
+        data = [0,0,0,0,3,1,1,0,0,0,2,0]
+        break;
+      case "renewal":
+        data = [0,1,1,0,1,1,0,0,0,0,0,0]
+        break;
+    }
+
+  }
+
 
   return (<div>
     <Line
@@ -15,11 +31,20 @@ const LineChart = ({props}) => {
                 labels: months(),
                 datasets: [{
                     label,
-                    data: bestReseller(),
+                    data,
                     fill: false,
                     borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
+                    tension: 0.3
                   }]
+        }}
+        options={{
+          scales: {
+            y: {
+              ticks: {
+                  precision: 0
+              }
+          }
+          }
         }}   
     />
 

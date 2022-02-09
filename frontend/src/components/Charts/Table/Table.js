@@ -8,7 +8,8 @@ import { useState } from 'react';
 //local components
 //do ON click function button
 // const expandClick = () => toggledOn7
-
+//table component should receive array of rows in json format.
+//headers should be passed in too
 
 
 const Table = ({props}) => {

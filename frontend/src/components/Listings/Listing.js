@@ -1,6 +1,7 @@
 //TODO pènding
 
 import React from 'react';
+import {FaAngleRight } from "react-icons/fa"
 
 const Listing = ({props}) => {
 
@@ -16,7 +17,8 @@ const Listing = ({props}) => {
     </p>
     <button className="card-header-icon" aria-label="more options" onClick={()=>select(product)} style={{backgroundColor:"rgba(6, 78, 137, 0.8)"}}>
       <span className="icon">
-        <p className="fas fa-angle-right" aria-hidden="true" style={{color:"white"}}> > </p>
+        <p aria-hidden="true" style={{color:"white"}}> </p>
+        <FaAngleRight color='white' />
       </span>
     </button>
   </header>

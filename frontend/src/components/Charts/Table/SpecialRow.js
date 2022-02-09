@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { BsCloudArrowDown } from 'react-icons/bs'
 
 const trend_row=(props)=>{
 
@@ -41,8 +41,8 @@ const buttonToggle = (cb) => {
 
  return (
    <div style={{color:"#000000"}}>
-      <button className="card-header-icon" aria-label="more options" onClick={()=>cb()} style={{backgroundColor:"rgba(6, 78, 137, 0.8)"}}>
-      <p className="fas fa-angle-right" aria-hidden="true" style={{color:"white"}}> ... </p>
+      <button className="card-header-icon"  onClick={()=>cb()} >
+      <BsCloudArrowDown size="2em"/>
          </button> 
    </div>
  )

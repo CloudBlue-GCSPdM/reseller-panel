@@ -9,7 +9,7 @@ import Layout from '../Layout';
 import SubTitle from '../SubTitle';
 import Center from '../Center';
 import Loading from '../Loading';
-
+import { BsListUl } from "react-icons/bs"
 
 const Home = ({props}) => {
 
@@ -102,17 +102,20 @@ const Home = ({props}) => {
         <div style={{
             position: 'absolute', left: '50%', top: '50%',
             transform: 'translate(-50%, -50%)'}}> 
-             <Loading />
+
+        <br/> 
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/> 
+
+             {/* <Loading /> */}
                 </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>   
+          
       
       </div>
     }
@@ -127,20 +130,32 @@ const Home = ({props}) => {
     const jsx_loaded_vendors=()=>{
     
       return <div>
-            <SubTitle props={{"subtitle":"List of vendors:"}}></SubTitle>
-            <Grid props={{ "vendors": [...vendors], "select":handleVendorClick}} />
+          <div className='row'>
+          <Center props={{"subtitle": "Vendors:", "loading": loading_vendors}}/>           
+            </div>
+            <br/>
+
+            
+        <div className="columns is-desktop">
+          <div className="column"></div>
+          <div className="column is-three-fifths"><Grid props={{ "vendors": [...vendors], "select": handleVendorClick }} /></div>
+          <div className="column"></div>
+        </div>
       </div>
     }
 
 
   return <div>
-
+    
     <Title props={{ 'title': 'Welcome to the landing page', 'subtitle': `Vendors you work with: ${vendors}.` }} />
     {/* outer div */}
     <div style={{ paddingLeft: 25, paddingRight: 25 }}>
 
-    {loading_products ? jsx_load_product() : jsx_loaded_all_products()}
     {loading_vendors ? <br /> : jsx_loaded_vendors()}  
+    <br/>
+    <br/>
+    <br/>
+    {loading_products ? jsx_load_product() : jsx_loaded_all_products()}
         
       </div>
 

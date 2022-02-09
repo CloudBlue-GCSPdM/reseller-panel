@@ -9,7 +9,7 @@ app = FastAPI()
 
 @app.get("/vendorList")
 def get_vendors():
-    return {"vendors": ["Sophos", "McAfee", "TrendMicro", "BitDefender", "Mimecast"]}
+    return {"vendors": ["Sophos", "TrendMicro", "BitDefender" ]}
 
 #done 
 @app.get("/productList")
