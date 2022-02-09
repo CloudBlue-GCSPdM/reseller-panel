@@ -1,13 +1,5 @@
 import React from 'react';
 
- //
-// //customer name, 
-// fecha de suscripción, 
-// customer
-//  name,
-//   status,
-//    ,expiración => (billing.next_date)
-//     si puedes meter info financiera podría estar bien.
 
 const trend_Table = () => {
 
@@ -70,10 +62,8 @@ const Headers = ({props}) => {
       switch(vendor){
         case "TrendMicro":
           return trend_Table()
-          break;
         case "Sophos":
           return sophos_table()
-          break;
       }
     }
   }

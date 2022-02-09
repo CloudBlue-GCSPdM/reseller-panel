@@ -4,6 +4,8 @@ import React from 'react';
 const trend_row=(props)=>{
 
 
+    const { toggle } = props;
+
     const { row, i} = props;
     const customerName = row.params[0].id || "not available"
     const createdAt = row.events.created.at.split("T")[0]
@@ -11,7 +13,7 @@ const trend_row=(props)=>{
     const user_id = row.extra.users[0].customer_id
     const client_name = row.extra.users[0].first_name +  row.extra.users[0].last_name
     const reseller_id = row.extra.users[0].user_id
-    const expand = row.extra.expand ? "button goes here" : " "
+    const expand = row.extra.expand ? buttonToggle(toggle) : " "
     const email = row.extra.users[0].email
     const time_zone = row.extra.users[0].time_zone
     const phone = row.extra.users[0].phone.number
@@ -35,8 +37,21 @@ const trend_row=(props)=>{
 </tr>);
 }
 
+const buttonToggle = (cb) => {
+
+ return (
+   <div style={{color:"#000000"}}>
+      <button className="card-header-icon" aria-label="more options" onClick={()=>cb()} style={{backgroundColor:"rgba(6, 78, 137, 0.8)"}}>
+      <p className="fas fa-angle-right" aria-hidden="true" style={{color:"white"}}> ... </p>
+         </button> 
+   </div>
+ )
+
+}
 
 const sophos_row = (props) =>{
+
+  const { toggle } = props;
 
   const { row, i} = props;
   const customerName = row.params[0].id || "not available"
@@ -45,10 +60,10 @@ const sophos_row = (props) =>{
   const user_id = row.extra.users[0].customer_id
   const client_name = row.extra.users[0].first_name +  row.extra.users[0].last_name
   const reseller_id = row.extra.users[0].user_id
-  const expand = row.extra.expand ? "button goes here" : " "
+  const expand = row.extra.expand ? buttonToggle(toggle) : " "
   const email = row.extra.users[0].email
   const time_zone = row.extra.users[0].time_zone
-  
+
 
   return (
     <tr>
