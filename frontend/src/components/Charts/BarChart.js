@@ -34,7 +34,7 @@ const BarChart = ({props}) => {
 
   if (props && props.churn){
     const {churn} = props;
-    let data = churn == "product" ? [0,0,0,0,2,0,1,0,0,0,0,0] : [0,0,0,0,0,0,1,0,0,0,0,0]
+    let data = churn == "vendor" ? [0,0,0,0,2,0,1,0,0,0,0,0] : [0,0,0,0,0,0,1,0,0,0,0,0]
     datasets = [
       {
         label: "Churn rate",

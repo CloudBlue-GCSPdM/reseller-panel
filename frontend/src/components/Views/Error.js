@@ -9,7 +9,7 @@ const Error = () => {
         <Title props={{ "title": "404", "subtitle": "This is an error page, or you have arrived somewhere under construction..." }}></Title>
         
         <div className='container'>
-            <img src={cat}></img>
+            {/* <img src={cat}></img> */}
         </div>
     </div>;
 };

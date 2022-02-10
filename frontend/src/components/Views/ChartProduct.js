@@ -84,7 +84,7 @@ const page_body = () =>{
           <div className='whitebg'>
           <GiTreeGrowth size="2em"/>
           <Title props={{"title":"Seats Growth", "subtitle": "2021"}}/>
-          <LineChart props={{"label":"Seats Growth"}} />
+          <LineChart props={{"label":"Seats Growth", "custom": "product"}} />
           </div>
           <br/>
           <div className='whitebg'>

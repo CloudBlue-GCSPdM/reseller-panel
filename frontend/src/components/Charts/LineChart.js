@@ -20,6 +20,8 @@ const LineChart = ({props}) => {
       case "renewal":
         data = [0,1,1,0,1,1,0,0,0,0,0,0]
         break;
+      case "product":
+        data = [0,1,1,0,0,0,0,0,0,0,0,0]
     }
 
   }
