@@ -34,10 +34,14 @@ const Layout = ({props}) => {
     }
 
     return <div>
-            <div className="columns is-desktop">
+        <div className="columns is-desktop">
             <div className="column"></div>
-            <div className="column"> <Container props={{products, "select":handleProductClick}} /></div>
-            <div className="column "><ProductCard props={{selectedProduct}}/></div>
+            <div className='column is-three-fifths'>
+                <div className="columns is-desktop">
+                    <div className="column"> <Container props={{ products, "select": handleProductClick }} /></div>
+                    <div className="column "><ProductCard props={{ selectedProduct }} /></div>
+                </div>
+            </div>
             <div className="column"></div>
         </div>
         <br/>

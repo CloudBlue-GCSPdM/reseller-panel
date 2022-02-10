@@ -1,6 +1,8 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaHome } from "react-icons/fa"
 import { MdLibraryBooks } from "react-icons/md"
+import { RiAdminFill } from "react-icons/ri"
+import {AiTwotoneSetting} from "react-icons/ai"
 
 //app logo
 import logo from '../../pics/test-02.jpg'
@@ -11,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className='navbar' role='navigation' aria-label='main navigation' >
 
-      <img src={logo} width='250' height='max-height' onClick={()=>navigate("/")} style={{ paddingTop: 10 }} />
+      <img src={logo} width='250' height='max-height' onClick={()=>navigate("/")} style={{ paddingTop: 10, paddingBottom:10 }} />
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
@@ -37,6 +39,19 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      <section className="hero">
+  <div className="hero-body columns is-multiline">
+    <div className='column'>
+    <p className="title" style={{paddingTop: 10}}> 
+    <RiAdminFill size="1em" color='#999999'/>
+    <RiAdminFill size="0.5em" color='#ffffff'/>
+    <AiTwotoneSetting size="1em" color='#999999' />
+    </p>
+    
+    </div>
+  </div>
+</section>
 
 
     </nav>

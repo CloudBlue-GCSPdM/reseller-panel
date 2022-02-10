@@ -21,7 +21,7 @@ def sophos():
 def bit_defender():
     #query goes here
     table_response = response()
-    table_response.showData = False 
+    table_response.showData = True 
 
     return table_response
 

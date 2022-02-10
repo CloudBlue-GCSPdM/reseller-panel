@@ -10,6 +10,12 @@ import ScatterChart from '../Charts/ScatterChart';
 import Center from '../Center';
 import Table from '../Charts/Table/Table';
 import { useParams } from 'react-router-dom';
+import Footer from "../Footer";
+import { BsClipboardData} from "react-icons/bs"
+import { BiUnite } from "react-icons/bi"
+import { GiTreeGrowth, GiCancel } from "react-icons/gi"
+import { AiOutlineStar } from "react-icons/ai"
+
 
 const ChartProduct = () => {
   
@@ -22,7 +28,7 @@ const ChartProduct = () => {
   useEffect(()=>{
 
     window.scrollTo(0, 0)
-    axios.get(`/product/${product}/subscriptions`).then(res => {
+    axios.get(`/product/PRD-411-678-887/subscriptions`).then(res => {
     setSubscriptions(res.data.subscriptions)
     if(res.data.subscriptions.length>0) {
       setProductInfo(res.data.product_info)
@@ -43,39 +49,70 @@ const validate_body = () => {
 
 const page_body = () =>{
     return <div>
-      <Table props={{"subs": subscriptions}}/>
+      <div className='columns is-desktop'>
+        <div className='column'></div>
+        <div className='column is-three-fifths' style={{padding: 10}}>
+          <div className='whitebg'>
+          <BsClipboardData size="2em"/>
+          <br/>
+            <Table props={{ "subs": subscriptions }} />
+          </div>
+        </div>
+        <div className='column'></div>
+      </div>
+      
       <br/>
       <br/>
       <br/>
       <div className="columns is-desktop">
           <div className="column"></div>
           <div className="column">
+          <div className='whitebg'>
+          <AiOutlineStar size="2em"/>
             <Title props={{"title":"Total customers (ranking : #8)", "subtitle":"2021"}} />
             <BarChart props={{"labels" : ["Yours", "#1 Reseller"]}}/>
-
+          </div>
+          <br/>   
+          <div className='whitebg'>
+          <BiUnite  size="2em"/>
             <Title props={{"title":"Connect order type", "subtitle" :"2021"}}/>
             <DoughnutChart props={{"request": true}}/>
           </div>
+          </div>
           <div className="column"></div>
           <div className="column">
+          <div className='whitebg'>
+          <GiTreeGrowth size="2em"/>
           <Title props={{"title":"Seats Growth", "subtitle": "2021"}}/>
           <LineChart props={{"label":"Seats Growth"}} />
+          </div>
+          <br/>
+          <div className='whitebg'>
+          <GiCancel size="2em"/>
           <Title props={{"title":"Churn rate over time", "subtitle": "2021"}}/>
-          <div><ScatterChart /></div>
+          <BarChart props={{"labels" : [""], "churn": true}}/>
+          </div>
+         
           </div>
           <div className="column"></div>        
-          <div className="column"></div>
+          
+
     </div>
+    <br/>
+          <br/>
+    <Footer/>
     </div>
   }
 
+  let loadingcolor = loading ? "#FFFFFF" : "rgba(169, 235, 243, 0.2)";
 
 
-  return (<div>
+  return (<div style={{"background-color": loadingcolor}}>
 
     <Title props={{ "title": "Data visualization", "subtitle": "Here is the data we have for you." }}></Title>
-    <Center props={{ "subtitle": `Subscription's data for product: ${productInfo.name}`, "loading": loading }} />
+    <Center props={{ "subtitle": `Subscription's data`, "loading": loading }} />
     {loading ? <br /> : validate_body()}
+    
 
   </div>);
 };

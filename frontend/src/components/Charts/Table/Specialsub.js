@@ -282,7 +282,7 @@ const toggledOn = [
             }
         },
         "extra": {
-            "paging":{"total":1,"limit":25,"page":1},"users":[{"user_id":"42dd0865-197f-4220-9ed7-e921bf8a16ba","customer_id":"2a5b09c5-727a-4092-a460-b35f295794cb","note":null,"status":1,"login_name":"IngramMicro_Cust1","first_name":"Lorem ","last_name":"Ipsum","email":`billingType": "usage","partner": {"id": "e90f2f9f-e7cd-2d0e-b25b-6a346ef8b0235"},`,"time_zone":"Lorem laboris","language":"en-US","emergency_email":null,"phone":{"area_code":null,"number":null,"extension":null}}],
+            "paging":{"total":1,"limit":25,"page":1},"users":[{"user_id":"42dd0865-197f-4220-9ed7-e921bf8a16ba","customer_id":"4F426605-CE10-41A7-8BC7-24B5E8F4C4BF","note":null,"status":1,"login_name":"IngramMicro_Cust1","first_name":"Lorem ","last_name":"Ipsum","email":`us01`,"time_zone":"Lorem laboris","language":"en-US","emergency_email":null,"phone":{"area_code":null,"number":null,"extension":null}}],
             "expand" : false
     
         }
@@ -430,13 +430,13 @@ const toggledOn = [
                 "users":[
                 {
                     "user_id":"42dd0865-197f-4220-9ed7-e921bf8a16ba",
-                    "customer_id":"2a5b09c5-727a-4092-a460-b3921bf8a16ba",
+                    "customer_id":"4F426605-CE10-41A7-8BC7-24B5E8F4C4BF",
                     "note":null,
                     "status":1,
                     "login_name":"IngramMicro_Cust1",
                     "first_name":"Lorem ",
                     "last_name":"Ipsum",
-                    "email": `billingType": "usage","partner": {"id": "e90f2f9f-e7cd-2d0e-b25b-6a346ef8b084"},`,
+                    "email": `eu02`,
                     "time_zone":"[Lorem laboris]",
                     "language":"en-US",
                     "emergency_email":null,
@@ -903,8 +903,95 @@ const toggledOff = [
     },
 ]
 
+const sopho_endpoints = [
+    {
+        "endpoint_name" : "Sophos Anti-Virus",
+        "tenand_id" : "4F426605-CE10-41A7-8BC7-24B5E8F4C4BF",
+        "platform" : "macOS",
+        "health" : "good",
+        "threats" : "-"
+    },
+    {
+        "endpoint_name" : "Sophos AutoUpdate",
+        "tenand_id" : "4F426605-CE10-41A7-8BC7-24B5E8F4C4BF",
+        "platform" : "macOS",
+        "health" : "good",
+        "threats" : "-"
+    }, {
+        "endpoint_name" : "Sophos Anti-Virus",
+        "tenand_id" : "4F426605-CE10-41A7-8BC7-24B5E8F4C4BF",
+        "platform" : "Windows 10",
+        "health" : "good",
+        "threats" : "-"
+    }
+]
+
+const bit_data = [
+    {
+        "id": "AS-3847-9986-4069",
+        "customerName": "Stephen Jhonson",
+        "rowStatus": "active",
+        "createdAt": "2021-11-30T16:24:29+00:00",
+        "billingNextDate": "2022-02-28T16:25:08+00:00",
+        "resellerId": "197f-4220-9ed7-e921bf8",
+        "expand": true,
+        "companyName": "",
+        "companyId": "",
+        "creationDate": "",
+        "partnerType": "",
+        "licenseExp": "",
+        "usedSlots": ""
+    },
+    {
+        "id": "",
+        "customerName": "",
+        "rowStatus": "",
+        "createdAt": "",
+        "billingNextDate": "",
+        "resellerId": "197f-4220-9ed7-e921bf8",
+        "expand": false,
+        "companyName": "Initar",
+        "companyId": "ae037403-7947-4f2b-b0b2-af190a8b44eb",
+        "creationDate": "2021-11-30T16:24:29+00:00",
+        "partnerType": "Platinum",
+        "licenseExp": "2030-02-18T14:30:03",
+        "usedSlots": 5
+    },
+    {
+        "id": "",
+        "customerName": "",
+        "rowStatus": "",
+        "createdAt": "",
+        "billingNextDate": "",
+        "resellerId": "197f-4220-9ed7-e921bf8",
+        "expand": false,
+        "companyName": "Justerip",
+        "companyId": "bx037633-7947-4f2b-b0b2-af190a783eb",
+        "creationDate": "2021-11-30T16:24:29+00:00",
+        "partnerType": "Gold",
+        "licenseExp": "2030-02-18T14:30:03",
+        "usedSlots": 2
+    },
+]
+
+// Table #1
+// Tenant Name
+// Data Region
+
+
+
+// Table #2
+// Endpoint Name
+// Tenant ID
+// Platform
+// Health
+// Threats
+
+
 
 export {
     toggledOff,
-    toggledOn
+    toggledOn,
+    sopho_endpoints,
+    bit_data
 }

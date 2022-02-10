@@ -15,7 +15,6 @@ const DoughnutChart = ({props}) => {
     labels = getLabelrequest()
   }
 
-  console.log("before render", backgroundColor, labels)
   return <div>
       <Doughnut
       

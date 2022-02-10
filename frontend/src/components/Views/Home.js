@@ -11,6 +11,9 @@ import Center from '../Center';
 import Loading from '../Loading';
 import { BsListUl } from "react-icons/bs"
 
+import { MutatingDots } from  'react-loader-spinner'
+
+
 const Home = ({props}) => {
 
   const [vendors, setVendors] = useState([]);
@@ -98,7 +101,7 @@ const Home = ({props}) => {
     const jsx_load_product=()=>{
       return <div style={{ textAlign: 'center', justifyContent: 'center', display: 'block' }}>
          <br />
-        <SubTitle props={{"subtitle": "List of products:"}}></SubTitle>
+        <SubTitle props={{"subtitle": "Products"}}></SubTitle>
         <div style={{
             position: 'absolute', left: '50%', top: '50%',
             transform: 'translate(-50%, -50%)'}}> 
@@ -113,7 +116,15 @@ const Home = ({props}) => {
         <br/>
         <br/> 
 
-             {/* <Loading /> */}
+      {/* <div className='product-spinner'>
+        <MutatingDots
+          heigth="100"
+          width="100"
+          color='dark-blue'
+          ariaLabel='loading'
+      />
+      </div> */}
+
                 </div>
           
       
@@ -122,7 +133,8 @@ const Home = ({props}) => {
     
     const jsx_loaded_all_products=()=>{
       return <div>
-    <Center props={{"subtitle": "List of products:", "loading": loading_products}}/>
+    
+    <Center props={{"subtitle": "Products", "loading": loading_products}}/>
     <Layout props={{"products":products}}/>
       </div>
     }
@@ -131,14 +143,14 @@ const Home = ({props}) => {
     
       return <div>
           <div className='row'>
-          <Center props={{"subtitle": "Vendors:", "loading": loading_vendors}}/>           
+          <Center props={{"subtitle": "Vendors", "loading": loading_vendors}}/>           
             </div>
             <br/>
 
             
         <div className="columns is-desktop">
           <div className="column"></div>
-          <div className="column is-three-fifths"><Grid props={{ "vendors": [...vendors], "select": handleVendorClick }} /></div>
+          <div className="column is-three-fifths whitebg" style={{padding: "25"}}><Grid props={{ "vendors": [...vendors], "select": handleVendorClick }} /></div>
           <div className="column"></div>
         </div>
       </div>

@@ -7,7 +7,14 @@ import LineChart from '../Charts/LineChart';
 import BarChart from '../Charts/BarChart'
 import Center from '../Center';
 import Table from '../Charts/Table/Table';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { BiUnite } from "react-icons/bi"
+import { GiTreeGrowth, GiCancel, GiCyberEye} from "react-icons/gi"
+import { MdAutorenew } from "react-icons/md"
+import { AiFillApi } from "react-icons/ai"
+import { BsClipboardData} from "react-icons/bs"
+
+import Footer from "../Footer";
 
 //logo
 import VendorLogo from './VendorLogo'; 
@@ -43,8 +50,9 @@ const vendor_table = () => {
 
   return (
     <div>
+    <AiFillApi size="2em"/>
     <section className="section">
-              <h1 className="title">{vendor} subscription details</h1>
+              <h1 className="title">{vendor}'s subscriptions details</h1>
               {/* <h2 className="subtitle">
                Customer and users <strong> (Trend micro Only) </strong>
               </h2> */}
@@ -57,23 +65,48 @@ const vendor_table = () => {
   )
 }
 
+const sophos_special = () => {
+
+  return (<div> 
+    <div className="columns is-desktop"> 
+      <div className='column'></div>
+      <div className='column whitebg'>
+      <GiCyberEye size="2em"/>
+    <section className="section">
+              <h1 className="title">{vendor}'s Endpoints</h1>
+              {/* <h2 className="subtitle">
+               Customer and users <strong> (Trend micro Only) </strong>
+              </h2> */}
+              <Table props={{"subs": [], "special": true, "vendor": `${vendor}_special` }}/>
+              <h2 className="subtitle">
+                {/* <strong> (To be done) </strong> */}
+              </h2>
+            </section>
+            </div>
+            <div className='column'></div>
+    </div>
+    </div>
+    
+  )
+
+
+}
+
 const page_body = () => {
   return <div>
-
-      {/* <div className='whitebg'>  
-     Test icon hereee 
-     <i class="far fa-pencil"></i>
-      </div> */}
   
-      <br/>
-
+    
     <div className="columns is-desktop">
-    <div className="column"></div> 
-    <div className='whitebg'>
-    <VendorLogo />
-    <Table props={{"subs": subscriptions}}/>
-    </div>
-    <div className="column"></div>
+      <div className="column"></div>
+      <div className='column is-four-fifths'>
+        <div className='whitebg'>
+        <BsClipboardData size="2em"/>
+          <VendorLogo />
+          <Table props={{ "subs": subscriptions }} />
+          <br/>
+        </div>
+      </div>
+      <div className="column"></div>
     </div>
 
     <br/>
@@ -82,15 +115,16 @@ const page_body = () => {
         <div className="column"></div>
         <div className="column">
           <div className='whitebg'>
+          <BiUnite  size="2em"/>
           <Title props={{"title": "SKU allocation", "subtitle":"2021"}} />
            <DoughnutChart props={{"request": true}}/>
           </div>
-          <br/>
+          <br/>   
           <div className='whitebg'>
+            <MdAutorenew size="2em" />
           <Title props={{"title":"Upcoming renewals", "subtitle" :"2022"}}/>
           <LineChart props={{"label":"renewals", "custom": "renewal"}} />
           </div>
-          {/* <Title props={{"title":"Vendor capabilities", "subtitle" : `Customers and users` }}/> */}
           <br/>
           
          
@@ -98,30 +132,39 @@ const page_body = () => {
         <div className="column"></div>
         <div className="column">
         <div className='whitebg'>
+          <GiTreeGrowth size="2em"/>
         <Title props={{"title":"Subscription's growth", "subtitle": "2021"}}/>
         <LineChart props={{"label":"Subscription's Growth", "custom": "growth"}} />
         </div>
         <br/>
         <div className='whitebg'>
+          <GiCancel size="2em"/>
         <Title props={{"title":"Churn rate over time", "subtitle": "2021"}}/>
-        <BarChart props={{"labels" : [""], "churn": true}}/>
+        <BarChart props={{"labels" : [""], "churn": "vendor"}}/>
         </div>
         </div>
         <div className="column"></div>        
-        <div className="column"></div>
+
   </div>
 
-    <div style={{ paddingLeft: 30, paddingRight: 30 }}>
-      <div className='whitebg'>
-        {!vendorDetails.showData ? <Title props={{ "title": "Vendor not available yet", "subtitle": "We are working on getting the vendor's api access" }}></Title> : vendor_table()}
-      </div>
-
-      {/* add sophoes extra table here */}
-      
-
+    <div className='columns is-desktop'>
+      <div className='column'></div>
+     
+        <div className='column is-four-fifths whitebg'>
+          {!vendorDetails.showData ? <Title props={{ "title": "Vendor not available yet", "subtitle": "We are working on getting the vendor's api access" }}></Title> : vendor_table()}
+        </div>
+        <div className='column'></div>
+   
+      <br />
     </div>
+      {/* add sophoes extra table here */}
+      <br/>
+      {vendor == "Sophos" ? sophos_special() : <br/>}
+    
     <br/>
     <br/>
+
+    <Footer/>
   
   </div>
 
@@ -133,7 +176,7 @@ const page_body = () => {
 
   let loadingcolor = loading ? "#FFFFFF" : "rgba(169, 235, 243, 0.2)";
 
-  console.log("receiving stub data", vendorDetails)
+  console.log("receiving stub data", vendorDetails, vendorInfo)
   
 
     return (<div style={{"background-color": loadingcolor}}>

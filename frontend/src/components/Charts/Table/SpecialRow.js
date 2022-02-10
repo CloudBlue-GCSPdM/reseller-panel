@@ -76,13 +76,68 @@ const sophos_row = (props) =>{
     <th> {reseller_id}</th>
     <th> {expand} </th>
     <th> {user_id} </th>
-    <th> {client_name} </th>
     <th> {email} </th>
-    <th> {time_zone} </th>
 
 </tr>);
 }
 
+const bit_defender_row = (props) => {
+
+    const { toggle } = props;
+
+    const {i, row} = props;
+    console.log("inside of row", props)
+
+    const createdAt = row.createdAt.split("T")[0];
+    const billingNextDate = row.billingNextDate.split("T")[0];
+    const creationDate = row.creationDate.split("T")[0];
+    const licenseExp = row.licenseExp.split("T")[0];
+
+    const {id, customerName, rowStatus, resellerId,
+   companyName, companyId, partnerType, usedSlots } = props.row;
+
+    const expand = row.expand ? buttonToggle(toggle) : " "
+
+    return (
+      <tr>
+      <th> {i+1} </th>
+      <th> {id} </th>
+      <th> {customerName}</th>
+      <th> {rowStatus}</th>
+      <th> {createdAt} </th>
+      <th> {billingNextDate}</th>
+      <th> {resellerId}</th>
+      <th> {expand}</th>
+      <th> {companyName}</th>
+      <th> {companyId}</th>
+      <th> {creationDate}</th>
+      <th> {partnerType}</th>
+      <th> {licenseExp}</th>
+      <th> {usedSlots}</th>
+  
+  </tr>);
+
+
+}
+
+const sophos_special_row = (props) => {
+
+
+const {i} = props;
+ const { endpoint_name, tenand_id, platform, health, threats } = props.row
+
+  return (
+    <tr>
+    <th> {i+1} </th>
+    <th> {endpoint_name} </th>
+    <th> {tenand_id}</th>
+    <th> {platform}</th>
+    <th> {health} </th>
+    <th> {threats}</th>
+
+</tr>);
+
+}
 
 const SpecialRow = ({props}) => {
 
@@ -91,10 +146,14 @@ const SpecialRow = ({props}) => {
         switch(vendor){
           case "TrendMicro":
             return trend_row(props)
-            break;
+            
           case "Sophos":
             return sophos_row(props)
-            break;
+          case "Sophos_special":
+            return sophos_special_row(props)
+          case "BitDefender":
+            return bit_defender_row(props)
+            
         } 
     }
     

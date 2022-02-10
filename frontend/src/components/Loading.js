@@ -3,7 +3,11 @@ import { MutatingDots } from  'react-loader-spinner'
 
 import React from 'react';
 
-const Loading = () => {
+const Loading = ({props}) => {
+
+
+
+
   return <div>
       <MutatingDots
           heigth="100"

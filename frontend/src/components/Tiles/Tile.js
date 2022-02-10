@@ -15,9 +15,11 @@ const Tile = ({props}) => {
     <div className="tile is-parent">
         <article className="tile is-child notification is-info custom-mod" onClick={()=>select(name)}>
             <p className="title">{name}</p>
-            <p className="subtitle"> There are ({randomize()}) products available.</p>
+            <p className="subtitle"> There are ({randomize()}) products available.</p>    
             <figure className="image is-4by3">
-                <img src={vendors[`${name}`]}/>
+            <div className='image-round'>
+                <img borderRadius={6} src={vendors[`${name}`]}/>
+            </div>     
             </figure>
         </article>
     </div>
