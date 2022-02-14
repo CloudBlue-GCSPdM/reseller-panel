@@ -955,7 +955,7 @@ const bit_data = [
         "creationDate": "2021-11-30T16:24:29+00:00",
         "partnerType": "Platinum",
         "licenseExp": "2030-02-18T14:30:03",
-        "usedSlots": 5
+        "usedSlots": "0/4"
     },
     {
         "id": "",
@@ -969,8 +969,8 @@ const bit_data = [
         "companyId": "bx037633-7947-4f2b-b0b2-af190a783eb",
         "creationDate": "2021-11-30T16:24:29+00:00",
         "partnerType": "Gold",
-        "licenseExp": "2030-02-18T14:30:03",
-        "usedSlots": 2
+        "licenseExp": "2030-03-07T14:30:03",
+        "usedSlots": "0/5"
     },
 ]
 

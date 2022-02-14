@@ -56,7 +56,7 @@ const vendor_table = () => {
               {/* <h2 className="subtitle">
                Customer and users <strong> (Trend micro Only) </strong>
               </h2> */}
-              <Table props={{"subs": [], "special": true, "vendor": vendor }}/>
+              <Table props={{"subs": [], "special": true, "vendor": vendor, "details":vendorDetails}}/>
               <h2 className="subtitle">
                 {/* <strong> (To be done) </strong> */}
               </h2>

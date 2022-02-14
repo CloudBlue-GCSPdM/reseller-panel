@@ -39,7 +39,30 @@ switch(vendor){
     break;
 
   case "BitDefender":
-    other = showData ? bit_data: bit_data.slice(0,1);
+    let loaded_data = bit_data;
+  
+    try {
+      
+      const real_data = props.details.data.result;
+      const company_1 = real_data[0].name
+      const company_1_id = real_data[0].id
+      const company_2 = real_data[1].name
+      const company_2_id = real_data[1].id
+      const createdAt = real_data[0].createdAt
+      const createdAt2 = real_data[1].createdAt
+
+      loaded_data[1].companyName = company_1
+      loaded_data[2].companyName = company_2
+      loaded_data[1].companyId = company_1_id
+      loaded_data[2].companyId = company_2_id
+      loaded_data[1].creationDate = createdAt
+      loaded_data[2].creationDate = createdAt2
+
+    } catch (error) {
+      
+    }
+
+    other = showData ? loaded_data: loaded_data.slice(0,1);
     break;
 
   case "regular":

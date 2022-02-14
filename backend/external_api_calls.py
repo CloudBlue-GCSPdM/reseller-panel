@@ -1,3 +1,7 @@
+import requests
+from config import bit_defender_key
+
+
 class response:
     pass
 
@@ -21,6 +25,22 @@ def sophos():
 def bit_defender():
     #query goes here
     table_response = response()
+ 
+    url = 'https://cloud.gravityzone.bitdefender.com/api/v1.0/jsonrpc/companies'
+    apikey = bit_defender_key
+    headers = {'Content-Type': 'application/json'}
+    payload = {
+        'params': {
+            "nameFilter": '*'
+        },
+        "jsonrpc": "2.0",
+        "method": "findCompaniesByName",
+        "id": "ae037403-7947-4f2b-b0b2-af190a8b44eb"
+    }
+
+    r = requests.post(url=url, auth=(apikey, ''), json=payload, headers=headers)
+
+    table_response.data = r.json()
     table_response.showData = True 
 
     return table_response
